@@ -14,3 +14,40 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+
+var googleApiKey = 'AIzaSyBah0ykfc0PP4Vj_O-dNgcZKp3YgxtTmPw'
+
+
+
+
+var googlePlacesAutocomplete = function(placesInput)	{
+  var googleUrl = 'https://maps.googleapis.com/maps/api/place/autocomplete/json?input=Vict&types=geocode&language=fr&key=AIzaSyBah0ykfc0PP4Vj_O-dNgcZKp3YgxtTmPw'
+  //var googleUrl = 'https://maps.googleapis.com/maps/api/place/autocomplete/json?input=' + placesInput + '&types=geocode&key=' + googleApiKey + ''
+
+
+
+  ajax({
+  	  type: 'GET',
+      url: googleUrl,
+      dataType: 'json',
+      success: function(response)    {
+      	
+          console.log(response)
+       },
+      error: function(response)    {
+          console.log(response);
+      }
+
+  })
+}
+
+$(document).on('turbolinks:load', function() {
+	$('#locationInput').keyup(function()	{
+		
+		var placesInput = $('#locationInput').val()
+		console.log(placesInput)
+		googlePlacesAutocomplete(placesInput)
+	})
+
+})
