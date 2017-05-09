@@ -22,12 +22,12 @@ var googleApiKey = 'AIzaSyBah0ykfc0PP4Vj_O-dNgcZKp3YgxtTmPw'
 
 
 var googlePlacesAutocomplete = function(placesInput)	{
-  var googleUrl = 'https://maps.googleapis.com/maps/api/place/autocomplete/json?input=Vict&types=geocode&language=fr&key=AIzaSyBah0ykfc0PP4Vj_O-dNgcZKp3YgxtTmPw'
+  var googleUrl = 'http://maps.googleapis.com/maps/api/place/autocomplete/json?input=Vict&types=geocode&language=fr&key=AIzaSyBah0ykfc0PP4Vj_O-dNgcZKp3YgxtTmPw'
   //var googleUrl = 'https://maps.googleapis.com/maps/api/place/autocomplete/json?input=' + placesInput + '&types=geocode&key=' + googleApiKey + ''
 
 
 
-  ajax({
+  $.ajax({
   	  type: 'GET',
       url: googleUrl,
       dataType: 'json',
